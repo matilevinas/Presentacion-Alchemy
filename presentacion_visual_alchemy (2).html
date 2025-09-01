@@ -1,0 +1,1721 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte Semanal Research - Alchemy Valores</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #8B7B6B 0%, #A0927E 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .presentation {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .slide {
+            background: white;
+            border-radius: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideIn 1s ease-out forwards;
+        }
+        
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .slide:nth-child(1) { animation-delay: 0.1s; }
+        .slide:nth-child(2) { animation-delay: 0.2s; }
+        .slide:nth-child(3) { animation-delay: 0.3s; }
+        .slide:nth-child(4) { animation-delay: 0.4s; }
+        .slide:nth-child(5) { animation-delay: 0.5s; }
+        .slide:nth-child(6) { animation-delay: 0.6s; }
+        .slide:nth-child(7) { animation-delay: 0.7s; }
+        .slide:nth-child(8) { animation-delay: 0.8s; }
+        .slide:nth-child(9) { animation-delay: 0.9s; }
+        
+        .header {
+            background: linear-gradient(135deg, #D4AF37, #F4D03F);
+            color: white;
+            text-align: center;
+            padding: 60px;
+            position: relative;
+        }
+        
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 25px;
+        }
+        
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+        
+        .header .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 35px;
+        }
+        
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .section-title {
+            background: linear-gradient(135deg, #5D4E3A, #8B7B6B);
+            color: white;
+            padding: 30px 40px;
+            font-size: 1.6rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .content {
+            padding: 50px;
+        }
+        
+        .executive-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .summary-card {
+            background: linear-gradient(135deg, #FFF8E1, #FBF9F3);
+            padding: 35px;
+            border-radius: 20px;
+            border-left: 6px solid #D4AF37;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .summary-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #D4AF37, #F4D03F);
+            clip-path: polygon(100% 0, 0 0, 100% 100%);
+        }
+        
+        .summary-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(212,175,55,0.3);
+        }
+        
+        .summary-card h3 {
+            color: #5D4E3A;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .summary-card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .key-metric {
+            background: linear-gradient(135deg, #D4AF37, #F4D03F);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+        
+        .definition-box {
+            background: #E8F5E8;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        
+        .definition-term {
+            font-weight: 700;
+            color: #2E7D32;
+            font-size: 0.95rem;
+        }
+        
+        .definition-text {
+            color: #1B5E20;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        
+        .macro-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .macro-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-top: 4px solid #D4AF37;
+        }
+        
+        .macro-card h4 {
+            color: #5D4E3A;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+        
+        .data-point {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .data-point:last-child {
+            border-bottom: none;
+        }
+        
+        .chart-container {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 50px;
+            align-items: start;
+            margin: 40px 0;
+        }
+        
+        .chart-wrapper {
+            height: 400px;
+            position: relative;
+        }
+        
+        .chart-details {
+            min-width: 300px;
+        }
+        
+        .legend-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 25px;
+            margin: 12px 0;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .legend-item:hover {
+            background: linear-gradient(135deg, #FFF8E1, #FFF3C4);
+            transform: translateX(15px);
+            border-color: #D4AF37;
+        }
+        
+        .legend-color {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            margin-right: 15px;
+        }
+        
+        .legend-label {
+            display: flex;
+            align-items: center;
+            color: #5D4E3A;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .legend-value {
+            color: #8B7B6B;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+        
+        .strategy-highlight {
+            background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            border-left: 5px solid #1976D2;
+        }
+        
+        .strategy-highlight h4 {
+            color: #1565C0;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .strategy-highlight p {
+            color: #1976D2;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+        .opportunities-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .opportunity-card {
+            background: linear-gradient(135deg, #FFF8E1, #FFF3C4);
+            border: 3px solid #D4AF37;
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .opportunity-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #D4AF37, #F4D03F);
+        }
+        
+        .opportunity-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 30px 60px rgba(212,175,55,0.4);
+        }
+        
+        .opportunity-card h4 {
+            color: #B8860B;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .target-badge {
+            background: linear-gradient(135deg, #D4AF37, #F4D03F);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            display: inline-block;
+            margin: 15px 0;
+            font-weight: 600;
+        }
+        
+        .opportunity-details {
+            margin-top: 20px;
+        }
+        
+        .opportunity-details .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: #8B7B6B;
+        }
+        
+        .detail-value {
+            color: #5D4E3A;
+            font-weight: 500;
+        }
+        
+        .risk-analysis {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .risk-card {
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .risk-high {
+            background: linear-gradient(135deg, #FFEBEE, #FFCDD2);
+            border-color: #F44336;
+        }
+        
+        .risk-medium {
+            background: linear-gradient(135deg, #FFF8E1, #FFECB3);
+            border-color: #FF9800;
+        }
+        
+        .risk-low {
+            background: linear-gradient(135deg, #E8F5E8, #C8E6C9);
+            border-color: #4CAF50;
+        }
+        
+        .risk-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .risk-level {
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .action-item {
+            background: linear-gradient(135deg, #E8F5E8, #F0FFF0);
+            padding: 25px 30px;
+            border-radius: 15px;
+            border-left: 5px solid #4CAF50;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .action-item:hover {
+            transform: translateX(20px);
+            box-shadow: 0 10px 30px rgba(76,175,80,0.25);
+        }
+        
+        .action-item.completed {
+            opacity: 0.6;
+            text-decoration: line-through;
+            background: linear-gradient(135deg, #F5F5F5, #E0E0E0);
+            border-left-color: #9E9E9E;
+        }
+        
+        .action-checkbox {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 2px solid #4CAF50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        
+        .action-content {
+            flex: 1;
+        }
+        
+        .market-analysis {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 40px 0;
+        }
+        
+        .analysis-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 4px solid #D4AF37;
+        }
+        
+        .analysis-card h4 {
+            color: #5D4E3A;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+        
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .metric-row:last-child {
+            border-bottom: none;
+        }
+        
+        .metric-label {
+            font-weight: 600;
+            color: #666;
+        }
+        
+        .metric-value {
+            font-weight: 700;
+            color: #D4AF37;
+            font-size: 1.2rem;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #5D4E3A, #8B7B6B);
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+        
+        .contacts {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .contact-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.05rem;
+        }
+        
+        .contact-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-5px);
+        }
+        
+        .disclaimer {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 8px;
+        }
+        
+        .tab-btn {
+            padding: 12px 25px;
+            border: none;
+            background: transparent;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            color: #666;
+        }
+        
+        .tab-btn.active {
+            background: linear-gradient(135deg, #D4AF37, #F4D03F);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @media (max-width: 1200px) {
+            .chart-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .chart-wrapper {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.5rem; }
+            .macro-section { grid-template-columns: 1fr; }
+            .market-analysis { grid-template-columns: 1fr; }
+            .contacts { flex-direction: column; align-items: center; }
+            .actions-grid { grid-template-columns: 1fr; }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <!-- SLIDE 1: Header Simplificado -->
+        <div class="slide">
+            <div class="header">
+                <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFFFFF"/>
+                            <stop offset="100%" style="stop-color:#FFFFFF"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M20 80 L50 20 L80 80" stroke="url(#logoGradient)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M35 80 L50 50 L65 80" stroke="url(#logoGradient)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div style="font-size: 1.3rem; margin-bottom: 25px; font-weight: 300; letter-spacing: 3px;">ALCHEMY VALORES</div>
+                <h1>Reporte Semanal Research</h1>
+                <div class="subtitle">Análisis Integral de Mercados y Estrategia de Inversión</div>
+                <div class="badges">
+                    <div class="badge">📅 28 de Agosto 2025</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: Resumen Ejecutivo -->
+        <div class="slide">
+            <div class="section-title">
+                <span>🔑</span>
+                RESUMEN EJECUTIVO Y HIGHLIGHTS DE LA SEMANA
+            </div>
+            <div class="content">
+                <div class="executive-summary">
+                    <div class="summary-card pulse">
+                        <h3>🇦🇷 ARGENTINA - Momento Técnico Crítico</h3>
+                        <p>Análisis técnico indica posible finalización de corrección en equity argentino. Sector bancario muestra señales de agotamiento de la caída tras corrección superior al 50%.</p>
+                        <div class="key-metric">Oportunidad: Banco Galicia $35-$38</div>
+                        <p style="margin-top: 15px; font-size: 0.95rem; color: #888;">
+                            <strong>Contexto:</strong> Confianza gubernamental en mínimos, especialmente en segmento joven (-29 años), pero niveles actuales ya descuentan escenario adverso.
+                        </p>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <h3>🌎 MERCADOS INTERNACIONALES - Expectativa de Corrección</h3>
+                        <p>S&P 500 cerca de tope técnico de largo plazo. Jackson Hole confirmó cambio de postura de la Fed hacia recortes de tasas por desaceleración del mercado laboral estadounidense.</p>
+                        <div class="key-metric">Target Corrección: 5-10% S&P</div>
+                        <div class="definition-box">
+                            <div class="definition-term">Jackson Hole:</div>
+                            <div class="definition-text">Simposio económico anual en Wyoming donde la Fed comunica cambios de política monetaria de manera más clara que en declaraciones oficiales.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <h3>🛢️ SECTOR PETROLERO - Momentum Técnico Confirmado</h3>
+                        <p>Ratio oro/petróleo en mínimos históricos de décadas. Quiebre técnico confirmado en XLE sugiere inicio de nueva fase alcista en energía.</p>
+                        <div class="key-metric">Target: Noble Corporation</div>
+                        <div class="definition-box">
+                            <div class="definition-term">XLE:</div>
+                            <div class="definition-text">ETF que replica el sector energético del S&P 500. Incluye las principales petroleras como Exxon, Chevron, ConocoPhillips.</div>
+                        </div>
+                        <div class="definition-box">
+                            <div class="definition-term">Noble Corporation:</div>
+                            <div class="definition-text">Empresa de perforación offshore con capitalización de ~$5B. Los "drillers" históricamente amplifican movimientos del sector petrolero.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <h3>⚠️ FACTOR CRÍTICO - Ancla Fiscal Argentina</h3>
+                        <p>Sostenimiento del equilibrio fiscal post-elecciones será determinante para evitar crisis de balanza de pagos. Tasas actuales insostenibles a mediano plazo.</p>
+                        <div class="key-metric">Riesgo: Crisis B.P.</div>
+                        <p style="margin-top: 15px; font-size: 0.95rem; color: #888;">
+                            <strong>Escenario Base:</strong> No esperamos crisis B.P. en corto plazo, pero requerirá ajustes de política monetaria post-electorales.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: Análisis Macroeconómico Detallado -->
+        <div class="slide">
+            <div class="section-title">
+                <span>📊</span>
+                ANÁLISIS MACROECONÓMICO INTEGRAL
+            </div>
+            <div class="content">
+                <div class="tab-container">
+                    <button class="tab-btn active" onclick="showTab('argentina-macro')">Argentina</button>
+                    <button class="tab-btn" onclick="showTab('internacional-macro')">Internacional</button>
+                    <button class="tab-btn" onclick="showTab('sectorial-macro')">Análisis Sectorial</button>
+                </div>
+
+                <div id="argentina-macro" class="tab-content active">
+                    <div class="macro-section">
+                        <div class="macro-card">
+                            <h4>🏛️ Indicadores Políticos y de Confianza</h4>
+                            <div class="data-point">
+                                <span>Confianza en Gobierno</span>
+                                <span style="color: #F44336; font-weight: bold;">↓ Mínimo desde Sept 2024</span>
+                            </div>
+                            <div class="data-point">
+                                <span>Segmento más afectado</span>
+                                <span>Jóvenes <29 años</span>
+                            </div>
+                            <div class="data-point">
+                                <span>vs Alberto Fernández (promedio)</span>
+                                <span style="color: #4CAF50;">Nivel superior</span>
+                            </div>
+                            <div class="data-point">
+                                <span>vs Mauricio Macri (promedio)</span>
+                                <span style="color: #4CAF50;">Ligeramente superior</span>
+                            </div>
+                            <div class="data-point">
+                                <span>Factor determinante</span>
+                                <span style="color: #FF9800; font-weight: bold;">Elecciones provinciales</span>
+                            </div>
+                        </div>
+                        
+                        <div class="macro-card">
+                            <h4>💰 Datos Fiscales y Monetarios</h4>
+                            <div class="data-point">
+                                <span>Inflación Julio (INDEC)</span>
+                                <span style="color: #4CAF50; font-weight: bold;">1.9% mensual</span>
+                            </div>
+                            <div class="data-point">
+                                <span>Inflación Anual</span>
+                                <span style="color: #FF9800; font-weight: bold;">36.6% interanual</span>
+                            </div>
+                            <div class="data-point">
+                                <span>Tasa de Interés Actual</span>
+                                <span style="color: #F44336; font-weight: bold;">~60%+ anual</span>
+                            </div>
+                            <div class="data-point">
+                                <span>RPM Ecogo (Semana 4)</span>
+                                <span>Desaceleración confirmada</span>
+                            </div>
+                            <div class="data-point">
+                                <span>Piso inflacionario técnico</span>
+                                <span style="color: #D4AF37; font-weight: bold;">1.5% (alcanzado mayo 2025)</span>
+                            </div>
+                            <div class="definition-box">
+                                <div class="definition-term">RPM Ecogo:</div>
+                                <div class="definition-text">Índice de precios relevados por Ecogo que mide inflación semanal. Referencia temprana para proyectar IPC oficial.</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="macro-card" style="margin-top: 20px;">
+                        <h4>🏦 Análisis Sectorial Bancario - Balances Q2</h4>
+                        <div class="market-analysis" style="margin: 20px 0;">
+                            <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                                <h5 style="color: #5D4E3A;">Banco Macro - Destacado</h5>
+                                <div class="metric-row">
+                                    <span class="metric-label">ROE Q2</span>
+                                    <span class="metric-value">12%</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">NPL Ratio</span>
+                                    <span class="metric-value" style="color: #FF9800;">2% (↑ desde 1%)</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Apalancamiento</span>
+                                    <span class="metric-value">Conservador</span>
+                                </div>
+                                <div class="definition-box" style="margin-top: 15px;">
+                                    <div class="definition-term">NPL (Non Performing Loans):</div>
+                                    <div class="definition-text">Créditos impagos +90 días. Macro 2% vs promedio no-bancario ~10%. Incremento natural por expansión crediticia.</div>
+                                </div>
+                            </div>
+                            <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                                <h5 style="color: #5D4E3A;">Banco Galicia - Oportunidad</h5>
+                                <div class="metric-row">
+                                    <span class="metric-label">Apalancamiento</span>
+                                    <span class="metric-value">5x Activo/Patrimonio</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Valuación actual</span>
+                                    <span class="metric-value">1x Book Value</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Corrección YTD</span>
+                                    <span class="metric-value" style="color: #4CAF50;">>50% desde máximos</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="margin-top: 20px; padding: 15px; background: #E8F5E8; border-radius: 10px; color: #2E7D32;">
+                            <strong>Conclusión:</strong> Sector bancario con fundamentals sólidos. Crecimiento en cartera de créditos duplicado vs año anterior. 
+                            NPL aún en niveles manejables comparado con prestamistas no bancarios. Espacio para continuar expansión crediticia.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="internacional-macro" class="tab-content">
+                    <div class="macro-section">
+                        <div class="macro-card">
+                            <h4>🏛️ Fed y Política Monetaria USA</h4>
+                            <div class="data-point">
+                                <span>Jackson Hole Outcome</span>
+                                <span style="color: #4CAF50; font-weight: bold;">Dovish Signal Confirmado</span>
+                            </div>
+                            <div class="data-point">
+                                <span>Crecimiento Empleo</span>
+                                <span style="color: #FF9800;">135K/mes (Q3 promedio)</span>
+                            </div>
+                            <div class="data-point">
+                                <span>Expectativa Sept</span>
+                                <span>Recorte 25-50 bps probable</span>
+                            </div>
+                            <div class="data-point">
+                                <span>Data Dependency</span>
+                                <span>Inflación Agosto crítica</span>
+                            </div>
+                            <div class="definition-box">
+                                <div class="definition-term">Dovish Signal:</div>
+                                <div class="definition-text">Jerome Powell adoptó tono "verborrágico" indicando que condiciones económicas están cambiando, sugiriendo menor agresividad en política monetaria y probable inicio de recortes de tasas.</div>
+                            </div>
+                        </div>
+                        
+                        <div class="macro-card">
+                            <h4>🌏 Tensiones Geopolíticas China-EE.UU.</h4>
+                            <div class="data-point">
+                                <span>Escalada Proteccionista</span>
+                                <span style="color: #F44336; font-weight: bold;">Sector Tecnológico</span>
+                            </div>
+                            <div class="data-point">
+                                <span>Impacto Nvidia</span>
+                                <span>Sin guidance para mercado chino</span>
+                            </div>
+                            <div class="data-point">
+                                <span>Medidas China</span>
+                                <span style="color: #FF9800;">Boicot implícito a H-Chips</span>
+                            </div>
+                            <div class="data-point">
+                                <span>Riesgo S&P</span>
+                                <span>Dependencia ingresos mercado chino</span>
+                            </div>
+                            <p style="background: #FFECB3; padding: 15px; border-radius: 10px; margin-top: 15px; color: #E65100;">
+                                <strong>Contexto:</strong> China está tomando medidas proteccionistas no via aranceles sino mediante boicot de compra de chips americanos. 
+                                El mercado chino explica gran parte del crecimiento de semiconductoras como Nvidia. Riesgo de problemática si empresas americanas son boicoteadas 
+                                implícitamente por desarrolladores chinos, afectando earnings del S&P.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="macro-card" style="margin-top: 20px;">
+                        <h4>📈 Brasil - Análisis Específico</h4>
+                        <div class="market-analysis" style="margin: 20px 0;">
+                            <div style="background: #E8F5E8; padding: 20px; border-radius: 10px; border-left: 4px solid #4CAF50;">
+                                <h5 style="color: #2E7D32;">Bovespa - Situación Actual</h5>
+                                <div class="metric-row">
+                                    <span class="metric-label">Performance YTD</span>
+                                    <span class="metric-value">Catch-up de pérdidas 2024</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Tendencia</span>
+                                    <span class="metric-value" style="color: #FF9800;">Consolidación lateral 10+ años</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Valuaciones</span>
+                                    <span class="metric-value" style="color: #4CAF50;">Descuentos atractivos</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Trade Electoral</span>
+                                    <span class="metric-value">Potencial sin confirmar</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="background: #FFF3E0; padding: 15px; border-radius: 10px; color: #E65100;">
+                            <strong>Desafío Histórico:</strong> Brasil no ha logrado superar máximos de 2008 ni siquiera con Bolsonaro. 
+                            El Bovespa en dólares muestra una década de "nada absoluta" desde perspectiva tendencial. 
+                            Gran potencial si logra re-rating que lo saque de consolidación, pero ha sido "historia de desazón permanente".
+                        </p>
+                    </div>
+                </div>
+
+                <div id="sectorial-macro" class="tab-content">
+                    <div class="macro-section">
+                        <div class="macro-card">
+                            <h4>🛢️ Análisis Energético - Turning Point</h4>
+                            <div class="data-point">
+                                <span>WTI Técnico</span>
+                                <span style="color: #4CAF50; font-weight: bold;">Piso confirmado</span>
+                            </div>
+                            <div class="data-point">
+                                <span>Ratio Oro/Petróleo</span>
+                                <span style="color: #D4AF37;">Mínimos históricos décadas</span>
+                            </div>
+                            <div class="data-point">
+                                <span>XLE Breakout</span>
+                                <span style="color: #4CAF50;">Quiebre técnico confirmado</span>
+                            </div>
+                            <div class="data-point">
+                                <span>Fundamentals</span>
+                                <span>Argumentos mixtos (típico commodities)</span>
+                            </div>
+                            <p style="background: #E3F2FD; padding: 15px; border-radius: 10px; margin-top: 15px; color: #1976D2;">
+                                <strong>Insight Técnico:</strong> El mercado de crudo "se las arregla para negar cualquier configuración técnica", 
+                                pero probabilidades altas de que corrección haya llegado a su fin. Cualquier señal de inflación americana 
+                                persistente (core real ~3%, no 2%) beneficiaría commodities como petróleo.
+                            </p>
+                        </div>
+                        
+                        <div class="macro-card">
+                            <h4>🇨🇳 China Tech - Value Play Selectivo</h4>
+                            <div class="data-point">
+                                <span>Valuación vs USA</span>
+                                <span style="color: #4CAF50; font-weight: bold;">Descuento significativo</span>
+                            </div>
+                            <div class="data-point">
+                                <span>Competitividad Sectorial</span>
+                                <span>Extremadamente alta</span>
+                            </div>
+                            <div class="data-point">
+                                <span>Mercado Doméstico</span>
+                                <span style="color: #D4AF37;">Suficientemente robusto</span>
+                            </div>
+                            <div class="data-point">
+                                <span>Cambio Regulatorio</span>
+                                <span style="color: #4CAF50;">Gradual mejora post-Alibaba</span>
+                            </div>
+                            <p style="background: #FFF8E1; padding: 15px; border-radius: 10px; margin-top: 15px; color: #E65100;">
+                                <strong>Tesis de Inversión:</strong> Sector de "altísimo potencial de suba" tras años de de-rating post multa Alibaba. 
+                                Mercado automotriz chino enorme - empresas como NIO no necesitan exportar para justificar valuaciones. 
+                                Cambios en China son lentos pero hay evolución en tratamiento del sector.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="strategy-highlight">
+                        <h4>💡 Rotación Sectorial en Contexto S&P Caro</h4>
+                        <p>Con S&P cotizando 22x earnings, sectores value como energía ofrecen oportunidad de rotación. 
+                        Drillers históricamente muestran beta superior durante recuperaciones del crudo. China Tech mantiene fundamentals sólidos 
+                        pese a riesgos regulatorios, con mercado doméstico suficiente para sostener tesis de inversión a largo plazo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: Posicionamiento Estratégico -->
+        <div class="slide">
+            <div class="section-title">
+                <span>📊</span>
+                POSICIONAMIENTO ESTRATÉGICO Y ANÁLISIS DE FONDOS
+            </div>
+            <div class="content">
+                <div class="chart-container">
+                    <div class="chart-wrapper">
+                        <div style="position: relative; width: 400px; height: 400px; margin: 0 auto;">
+                            <svg width="400" height="400" viewBox="0 0 400 400" style="transform: rotate(-90deg);">
+                                <defs>
+                                    <linearGradient id="pesosGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#D4AF37"/>
+                                        <stop offset="100%" style="stop-color:#B8860B"/>
+                                    </linearGradient>
+                                    <linearGradient id="dollarGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#8B7B6B"/>
+                                        <stop offset="100%" style="stop-color:#5D4E3A"/>
+                                    </linearGradient>
+                                    <linearGradient id="efectivoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#90EE90"/>
+                                        <stop offset="100%" style="stop-color:#228B22"/>
+                                    </linearGradient>
+                                </defs>
+                                
+                                <!-- Círculo base -->
+                                <circle cx="200" cy="200" r="150" fill="none" stroke="#f0f0f0" stroke-width="80"/>
+                                
+                                <!-- Pesos 67% -->
+                                <circle 
+                                    cx="200" 
+                                    cy="200" 
+                                    r="150" 
+                                    fill="none" 
+                                    stroke="url(#pesosGradient)" 
+                                    stroke-width="80"
+                                    stroke-dasharray="628 314"
+                                    stroke-dashoffset="0"
+                                    class="chart-segment"
+                                    style="transition: all 0.5s ease;">
+                                </circle>
+                                
+                                <!-- Hard Dollar 28% -->
+                                <circle 
+                                    cx="200" 
+                                    cy="200" 
+                                    r="150" 
+                                    fill="none" 
+                                    stroke="url(#dollarGradient)" 
+                                    stroke-width="80"
+                                    stroke-dasharray="263 679"
+                                    stroke-dashoffset="-628"
+                                    class="chart-segment"
+                                    style="transition: all 0.5s ease;">
+                                </circle>
+                                
+                                <!-- Efectivo 5% -->
+                                <circle 
+                                    cx="200" 
+                                    cy="200" 
+                                    r="150" 
+                                    fill="none" 
+                                    stroke="url(#efectivoGradient)" 
+                                    stroke-width="80"
+                                    stroke-dasharray="47 895"
+                                    stroke-dashoffset="-891"
+                                    class="chart-segment"
+                                    style="transition: all 0.5s ease;">
+                                </circle>
+                            </svg>
+                            
+                            <!-- Título centrado -->
+                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                                <h4 style="color: #5D4E3A; margin: 0; font-size: 1.2rem; font-weight: 600;">Fondo Local</h4>
+                                <p style="color: #8B7B6B; margin: 5px 0 0; font-size: 0.95rem;">Distribución Actual</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-details">
+                        <div class="legend-item" onmouseover="highlightSegment(0)" onmouseout="resetSegments()">
+                            <div class="legend-label">
+                                <div class="legend-color" style="background: linear-gradient(135deg, #D4AF37, #B8860B); border-radius: 4px;"></div>
+                                Pesos (Tasa Fija + CER)
+                            </div>
+                            <div class="legend-value">67%</div>
+                        </div>
+                        <div class="legend-item" onmouseover="highlightSegment(1)" onmouseout="resetSegments()">
+                            <div class="legend-label">
+                                <div class="legend-color" style="background: linear-gradient(135deg, #8B7B6B, #5D4E3A); border-radius: 4px;"></div>
+                                Hard Dollar + Dollar Link
+                            </div>
+                            <div class="legend-value">28%</div>
+                        </div>
+                        <div class="legend-item" onmouseover="highlightSegment(2)" onmouseout="resetSegments()">
+                            <div class="legend-label">
+                                <div class="legend-color" style="background: linear-gradient(135deg, #90EE90, #228B22); border-radius: 4px;"></div>
+                                Efectivo y Otros
+                            </div>
+                            <div class="legend-value">5%</div>
+                        </div>
+                        
+                        <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                            <h5 style="color: #5D4E3A; margin-bottom: 15px;">Desglose Detallado Pesos (67%)</h5>
+                            <div class="data-point">
+                                <span>Tasa Fija Corta</span>
+                                <span>53.8%</span>
+                            </div>
+                            <div class="data-point">
+                                <span>CER Marzo 2026</span>
+                                <span style="color: #4CAF50; font-weight: bold;">11% → Target 21%</span>
+                            </div>
+                            <div class="data-point">
+                                <span>Vencimientos TF</span>
+                                <span>12 Sept, 30 Sept (muy corto)</span>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 20px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                            <h5 style="color: #5D4E3A; margin-bottom: 15px;">Desglose Hard Dollar (28%)</h5>
+                            <div class="data-point">
+                                <span>Hard Dollar Cash</span>
+                                <span>20.5%</span>
+                            </div>
+                            <div class="data-point">
+                                <span>Dollar Link (ON + Pagarés)</span>
+                                <span>7.2%</span>
+                            </div>
+                            <div class="data-point">
+                                <span>Estrategia</span>
+                                <span>Salida completa TF larga</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="strategy-highlight">
+                    <h4>🎯 Estrategia de Transición: Tasa Fija → CER</h4>
+                    <p><strong>Rationale:</strong> Incremento gradual de CER del 11% al 21% para capturar tasa real del 26% hasta marzo 2026. 
+                    Protección ante volatilidad inflacionaria con piso técnico en 1.5%. Salida completa de tasa fija larga, 
+                    concentración en plazos muy cortos para mantener máxima flexibilidad ante cambios post-electorales.</p>
+                </div>
+
+                <!-- Análisis Fondo Compass Renta Mixta -->
+                <div class="macro-card" style="margin-top: 30px;">
+                    <h4>🌎 Compass Renta Mixta Dólares III FCI ($3.29M)</h4>
+                    <div class="market-analysis" style="margin: 20px 0;">
+                        <div style="background: #E3F2FD; padding: 25px; border-radius: 15px; border-left: 5px solid #1976D2;">
+                            <h5 style="color: #1565C0; margin-bottom: 15px;">Holdings Principales (68.12% invertido)</h5>
+                            <div class="metric-row">
+                                <span class="metric-label">MercadoLibre 2026</span>
+                                <span class="metric-value" style="color: #4CAF50;">18.12%</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Treasury Bill Oct 2025</span>
+                                <span class="metric-value">12.10%</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Aluar Serie 8 (Dollar Linked)</span>
+                                <span class="metric-value">6.12%</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Chile Soberano 2026</span>
+                                <span class="metric-value">6.07%</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Argentina GD30</span>
+                                <span class="metric-value">4.54%</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Performance desde Inception</span>
+                                <span class="metric-value" style="color: #FF9800;">-1.4% (Jul 2025)</span>
+                            </div>
+                        </div>
+                        
+                        <div style="background: #F3E5F5; padding: 25px; border-radius: 15px; border-left: 5px solid #9C27B0;">
+                            <h5 style="color: #7B1FA2; margin-bottom: 15px;">Distribución por Asset Class</h5>
+                            <div class="metric-row">
+                                <span class="metric-label">Deuda Corporativa</span>
+                                <span class="metric-value">~41%</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Deuda Soberana</span>
+                                <span class="metric-value">~23%</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Equity (CEDEARs + Local)</span>
+                                <span class="metric-value">~12%</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Efectivo y Disponibilidades</span>
+                                <span class="metric-value" style="color: #FF9800;">31.88%</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Duration</span>
+                                <span class="metric-value">0 días</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background: #FFF8E1; padding: 20px; border-radius: 10px; margin-top: 15px;">
+                        <h5 style="color: #F57F17; margin-bottom: 10px;">💡 Estrategia Actual - Fondo Joven</h5>
+                        <p style="color: #E65100; margin: 0; line-height: 1.6;">
+                            <strong>Inception:</strong> Julio 2025 (fondo reciente). 
+                            <strong>Approach:</strong> Diversificación geográfica LATAM con focus en duration corta (0 días). 
+                            <strong>Liquidez:</strong> Alto nivel de efectivo (31.88%) permite flexibilidad táctica. 
+                            <strong>Core Position:</strong> MercadoLibre mantiene peso significativo (18.12%) como en estrategia previa.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: Oportunidades de Inversión -->
+        <div class="slide">
+            <div class="section-title">
+                <span>💼</span>
+                OPORTUNIDADES DE INVERSIÓN - ANÁLISIS DETALLADO
+            </div>
+            <div class="content">
+                <div class="opportunities-section">
+                    <div class="opportunity-card pulse">
+                        <h4>🏦 Banco Galicia - Oportunidad Técnica</h4>
+                        <div class="target-badge">Target de Compra: $35-$38</div>
+                        <div class="opportunity-details">
+                            <div class="detail-row">
+                                <span class="detail-label">Plazo:</span>
+                                <span class="detail-value">1-3 meses</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Corrección YTD:</span>
+                                <span class="detail-value" style="color: #4CAF50;">>50% desde máximos enero</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Valuación:</span>
+                                <span class="detail-value">1.0x Book Value</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Catalizador:</span>
+                                <span class="detail-value">Finalización corrección equity argentino</span>
+                            </div>
+                        </div>
+                        <div style="background: #E8F5E8; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                            <strong style="color: #2E7D32;">Tesis:</strong> Sector bancario con fundamentals sólidos. Apalancamiento conservador 
+                            (5x activo/patrimonio) permite expansión. Representa valor excepcional en niveles actuales.
+                        </div>
+                    </div>
+                    
+                    <div class="opportunity-card">
+                        <h4>📊 CER Marzo 2026 - Cobertura Inflacionaria</h4>
+                        <div class="target-badge">Incremento Gradual: 11% → 21%</div>
+                        <div class="opportunity-details">
+                            <div class="detail-row">
+                                <span class="detail-label">Tasa Real Implícita:</span>
+                                <span class="detail-value" style="color: #D4AF37;">26% anual</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Piso Inflacionario:</span>
+                                <span class="detail-value">1.5% mensual (técnico)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Compresión Prima:</span>
+                                <span class="detail-value">Por rescates masivos de fondos</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Ventana:</span>
+                                <span class="detail-value">Dislocación temporal atractiva</span>
+                            </div>
+                        </div>
+                        <div style="background: #FFF8E1; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                            <strong style="color: #E65100;">Rationale:</strong> Call option relativamente barato sobre escenario inflacionario. 
+                            Si normalización ocurre, comprime prima. Si inflación no cae de 1.5%, se activa protección CER.
+                        </div>
+                    </div>
+                    
+                    <div class="opportunity-card">
+                        <h4>🛢️ Noble Corporation - Sector Energético</h4>
+                        <div class="target-badge">Large Cap Driller ~$5B</div>
+                        <div class="opportunity-details">
+                            <div class="detail-row">
+                                <span class="detail-label">Beta vs Productores:</span>
+                                <span class="detail-value" style="color: #4CAF50;">Superior en recuperaciones</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Ratio Oro/Crudo:</span>
+                                <span class="detail-value" style="color: #D4AF37;">Mínimos décadas</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">XLE Breakout:</span>
+                                <span class="detail-value">Confirmación técnica</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Timing:</span>
+                                <span class="detail-value">3-12 meses</span>
+                            </div>
+                        </div>
+                        <div style="background: #E3F2FD; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                            <strong style="color: #1976D2;">Contexto:</strong> Rotación hacia value en mercado con múltiplos altos. 
+                            Crudo completó corrección técnica. Drillers amplifican movimientos sectoriales alcistas.
+                        </div>
+                    </div>
+                    
+                    <div class="opportunity-card">
+                        <h4>🇨🇳 China Tech - Posición Selectiva</h4>
+                        <div class="target-badge">Mantener 5% Cartera</div>
+                        <div class="opportunity-details">
+                            <div class="detail-row">
+                                <span class="detail-label">Descuento vs USA:</span>
+                                <span class="detail-value" style="color: #4CAF50;">Significativo</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Mercado Doméstico:</span>
+                                <span class="detail-value">Autosuficiente para valuaciones</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Ejemplo NIO:</span>
+                                <span class="detail-value">Ganancia realizada post-rally</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Re-entry:</span>
+                                <span class="detail-value">En corrección mercado americano</span>
+                            </div>
+                        </div>
+                        <div style="background: #FFECB3; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                            <strong style="color: #E65100;">Estrategia:</strong> Posición selectiva justificada por fundamentals. 
+                            Potencial reingreso si corrección S&P genera oportunidades de precio.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: Plan de Acción -->
+        <div class="slide">
+            <div class="section-title">
+                <span>🎯</span>
+                PLAN DE ACCIÓN - PRÓXIMAS 4 SEMANAS
+            </div>
+            <div class="content">
+                <div class="tab-container">
+                    <button class="tab-btn active" onclick="showTab('acciones-inmediatas')">Inmediato (1 semana)</button>
+                    <button class="tab-btn" onclick="showTab('acciones-corto')">Corto Plazo (2-4 semanas)</button>
+                    <button class="tab-btn" onclick="showTab('acciones-seguimiento')">Seguimiento Continuo</button>
+                </div>
+
+                <div id="acciones-inmediatas" class="tab-content active">
+                    <div class="actions-grid">
+                        <div class="action-item" onclick="toggleAction(this)">
+                            <div class="action-checkbox">⏳</div>
+                            <div class="action-content">
+                                <strong>📊 Balance Cambiario (Viernes 30/8)</strong><br>
+                                Monitoreo crítico de flujo de divisas y presiones sobre reservas BCRA.
+                            </div>
+                        </div>
+                        
+                        <div class="action-item" onclick="toggleAction(this)">
+                            <div class="action-checkbox">⏳</div>
+                            <div class="action-content">
+                                <strong>📈 IPC Agosto (INDEC)</strong><br>
+                                Dato oficial inflación agosto. Validar si se mantiene por debajo de 2% mensual.
+                            </div>
+                        </div>
+                        
+                        <div class="action-item" onclick="toggleAction(this)">
+                            <div class="action-checkbox">⏳</div>
+                            <div class="action-content">
+                                <strong>🛢️ Resultados Licitación YPF</strong><br>
+                                Verificar resultados emisión 8.75% (hasta $100M buscados). Analizar demanda y pricing.
+                            </div>
+                        </div>
+                        
+                        <div class="action-item" onclick="toggleAction(this)">
+                            <div class="action-checkbox">⏳</div>
+                            <div class="action-content">
+                                <strong>📋 Completar Archivo Bancario</strong><br>
+                                Finalizar seguimiento detallado balances Q2 para compartir información sectorial.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="acciones-corto" class="tab-content">
+                    <div class="actions-grid">
+                        <div class="action-item" onclick="toggleAction(this)">
+                            <div class="action-checkbox">⏳</div>
+                            <div class="action-content">
+                                <strong>🇺🇸 Inflación EE.UU. (Primera semana septiembre)</strong><br>
+                                Dato crítico para decisión Fed septiembre. Validar expectativas dovish post-Jackson Hole.
+                            </div>
+                        </div>
+                        
+                        <div class="action-item" onclick="toggleAction(this)">
+                            <div class="action-checkbox">⏳</div>
+                            <div class="action-content">
+                                <strong>💼 Evaluar Incremento CER (Gradual)</strong><br>
+                                Análisis para incrementar del 11% al 21% en CER marzo 2026. Timing según condiciones.
+                            </div>
+                        </div>
+                        
+                        <div class="action-item" onclick="toggleAction(this)">
+                            <div class="action-checkbox">⏳</div>
+                            <div class="action-content">
+                                <strong>🏦 Monitorear Niveles Galicia</strong><br>
+                                Seguimiento diario niveles $35-$38 para posibles adiciones. Preparar sizing.
+                            </div>
+                        </div>
+                        
+                        <div class="action-item" onclick="toggleAction(this)">
+                            <div class="action-checkbox">⏳</div>
+                            <div class="action-content">
+                                <strong>🛢️ Evaluar Noble Corporation</strong><br>
+                                Análisis fundamental driller sector. Sizing apropiado considerando beta superior.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="acciones-seguimiento" class="tab-content">
+                    <div class="actions-grid">
+                        <div class="action-item" onclick="toggleAction(this)">
+                            <div class="action-checkbox">⏳</div>
+                            <div class="action-content">
+                                <strong>🔍 Tensiones China-EE.UU.</strong><br>
+                                Seguimiento medidas proteccionistas. Impacto en earnings tecnológicas con exposición China.
+                            </div>
+                        </div>
+                        
+                        <div class="action-item" onclick="toggleAction(this)">
+                            <div class="action-checkbox">⏳</div>
+                            <div class="action-content">
+                                <strong>📊 RPM Cobo Semanal</strong><br>
+                                Seguimiento continuo inflación semanal para proyecciones tempranas.
+                            </div>
+                        </div>
+                        
+                        <div class="action-item" onclick="toggleAction(this)">
+                            <div class="action-checkbox">⏳</div>
+                            <div class="action-content">
+                                <strong>⚖️ Indicadores Políticos Argentina</strong><br>
+                                Monitoreo encuestas pre-electorales y comunicación gubernamental sobre política fiscal.
+                            </div>
+                        </div>
+                        
+                        <div class="action-item" onclick="toggleAction(this)">
+                            <div class="action-checkbox">⏳</div>
+                            <div class="action-content">
+                                <strong>💱 Spreads LATAM y Oportunidades</strong><br>
+                                Monitoreo bonos corporativos con fichas <$200K. Evaluar timing para incrementar duration.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: Análisis de Riesgos -->
+        <div class="slide">
+            <div class="section-title">
+                <span>⚠️</span>
+                MATRIZ DE RIESGOS Y ESCENARIOS
+            </div>
+            <div class="content">
+                <div class="risk-analysis">
+                    <div class="risk-card risk-high">
+                        <div class="risk-level" style="color: #D32F2F;">🔴 RIESGO CRÍTICO</div>
+                        <h4>Crisis de Balanza de Pagos Argentina</h4>
+                        <div class="data-point">
+                            <span><strong>Definición:</strong></span>
+                            <span>Incapacidad de financiar importaciones y pagar deuda externa</span>
+                        </div>
+                        <div class="data-point">
+                            <span><strong>Probabilidad:</strong></span>
+                            <span style="color: #D32F2F;">Baja en corto plazo</span>
+                        </div>
+                        <div class="data-point">
+                            <span><strong>Catalizadores:</strong></span>
+                            <span>Ruptura ancla fiscal, resultado electoral adverso</span>
+                        </div>
+                        <div class="data-point">
+                            <span><strong>Impacto Portfolio:</strong></span>
+                            <span style="color: #D32F2F;">Alto - Posición pesos 67%</span>
+                        </div>
+                        <p style="margin-top: 15px; font-size: 0.95rem;">
+                            <strong>Crisis B.P. implica:</strong> Devaluación abrupta, controles cambiarios severos, riesgo de default. 
+                            <strong>Mitigación:</strong> Monitoreo reservas BCRA y indicadores fiscales.
+                        </p>
+                    </div>
+                    
+                    <div class="risk-card risk-medium">
+                        <div class="risk-level" style="color: #E65100;">🟡 RIESGO MODERADO</div>
+                        <h4>Escalada Proteccionismo China-EE.UU.</h4>
+                        <div class="data-point">
+                            <span><strong>Probabilidad:</strong></span>
+                            <span style="color: #E65100;">Media-Alta</span>
+                        </div>
+                        <div class="data-point">
+                            <span><strong>Impacto:</strong></span>
+                            <span>Earnings S&P, China Tech (5% cartera)</span>
+                        </div>
+                        <div class="data-point">
+                            <span><strong>Timeline:</strong></span>
+                            <span>Proceso gradual, no abrupto</span>
+                        </div>
+                        <p style="margin-top: 15px; font-size: 0.95rem;">
+                            <strong>Estrategia:</strong> Posición China Tech ya reducida. Diversificación geográfica en fondo LATAM.
+                        </p>
+                    </div>
+                    
+                    <div class="risk-card risk-medium">
+                        <div class="risk-level" style="color: #E65100;">🟡 RIESGO MODERADO</div>
+                        <h4>Tasas Argentinas Insostenibles</h4>
+                        <div class="data-point">
+                            <span><strong>Probabilidad:</strong></span>
+                            <span style="color: #E65100;">Alta post-elecciones</span>
+                        </div>
+                        <div class="data-point">
+                            <span><strong>Impacto:</strong></span>
+                            <span>Actividad económica, recaudación fiscal</span>
+                        </div>
+                        <div class="data-point">
+                            <span><strong>Portfolio:</strong></span>
+                            <span>Positivo si normalización gradual</span>
+                        </div>
+                        <p style="margin-top: 15px; font-size: 0.95rem;">
+                            <strong>Implicación:</strong> Necesario para evitar crisis autoinducida. Portfolio positioned para beneficiarse.
+                        </p>
+                    </div>
+                    
+                    <div class="risk-card risk-low">
+                        <div class="risk-level" style="color: #2E7D32;">🟢 RIESGO CONTROLADO</div>
+                        <h4>Corrección S&P 500 (5-10%)</h4>
+                        <div class="data-point">
+                            <span><strong>Probabilidad:</strong></span>
+                            <span style="color: #2E7D32;">Alta - Esperada</span>
+                        </div>
+                        <div class="data-point">
+                            <span><strong>Oportunidad:</strong></span>
+                            <span style="color: #4CAF50;">Recompra posiciones</span>
+                        </div>
+                        <div class="data-point">
+                            <span><strong>Preparación:</strong></span>
+                            <span>50% cash en fondo LATAM</span>
+                        </div>
+                        <p style="margin-top: 15px; font-size: 0.95rem;">
+                            <strong>Estrategia:</strong> Short S&P como hedge parcial. Liquidez disponible para aprovechar oportunidades.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: Outlook 2025-2026 -->
+        <div class="slide">
+            <div class="section-title">
+                <span>🔮</span>
+                OUTLOOK ESTRATÉGICO Y ESCENARIOS
+            </div>
+            <div class="content">
+                <div style="background: linear-gradient(135deg, #E8EAF6, #C5CAE9); padding: 30px; border-radius: 20px; margin-bottom: 30px;">
+                    <h4 style="color: #3F51B5; margin-bottom: 20px; text-align: center;">🎯 Tesis Central - Próximos 6 Meses</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; text-align: center;">
+                        <div>
+                            <h5 style="color: #303F9F;">Q4 2025</h5>
+                            <p style="color: #3F51B5; font-size: 0.95rem;">Corrección S&P 5-10%<br>Normalización tasas ARG<br>Oportunidades tácticas</p>
+                        </div>
+                        <div>
+                            <h5 style="color: #303F9F;">Q1 2026</h5>
+                            <p style="color: #3F51B5; font-size: 0.95rem;">Rebote mercados<br>S&P hacia 6,000-6,700<br>Argentina post-electoral</p>
+                        </div>
+                        <div>
+                            <h5 style="color: #303F9F;">H1 2026</h5>
+                            <p style="color: #3F51B5; font-size: 0.95rem;">Tope mercado LT posible<br>Rotación sectorial<br>Reevaluación estratégica</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <h4 style="color: #5D4E3A; margin-bottom: 25px; text-align: center;">🎯 Escenario Base - Expectativas</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                        <div>
+                            <h5 style="color: #4CAF50; margin-bottom: 15px;">✅ Argentina</h5>
+                            <ul style="color: #2E7D32; padding-left: 20px; line-height: 1.7;">
+                                <li>Inflación mensual: Mantener niveles 1.5-2% (actual 1.9% julio)</li>
+                                <li>Tasas: Normalización gradual post-elecciones</li>
+                                <li>Fiscal: Sostenimiento del ancla fiscal</li>
+                                <li>Política: Resultado electoral no disruptivo</li>
+                            </ul>
+                            <div style="background: #C8E6C9; padding: 10px; border-radius: 8px; margin-top: 10px;">
+                                <strong>Portfolio Impact:</strong> Beneficio por normalización gradual
+                            </div>
+                        </div>
+                        <div>
+                            <h5 style="color: #1976D2; margin-bottom: 15px;">🌍 Internacional</h5>
+                            <ul style="color: #1565C0; padding-left: 20px; line-height: 1.7;">
+                                <li>S&P: Corrección 5-10%, rebote posterior</li>
+                                <li>Fed: Recortes graduales data-dependent</li>
+                                <li>Energía: Rotación sectorial favorable</li>
+                                <li>China-USA: Tensiones contenidas</li>
+                            </ul>
+                            <div style="background: #BBDEFB; padding: 10px; border-radius: 8px; margin-top: 10px;">
+                                <strong>Strategy:</strong> Aprovechar corrección para recompras selectivas
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: Footer -->
+        <div class="slide">
+            <div class="footer">
+                <div style="margin-bottom: 40px;">
+                    <svg width="120" height="120" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 20px;">
+                        <defs>
+                            <linearGradient id="footerLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#FFFFFF"/>
+                                <stop offset="100%" style="stop-color:#FFFFFF"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M20 80 L50 20 L80 80" stroke="url(#footerLogoGradient)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M35 80 L50 50 L65 80" stroke="url(#footerLogoGradient)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div style="font-size: 1.4rem; font-weight: 300; letter-spacing: 3px; margin-bottom: 20px;">ALCHEMY VALORES</div>
+                    <h3 style="font-size: 2rem; margin-bottom: 15px;">Equipo Research</h3>
+                </div>
+                
+                <div class="contacts">
+                    <button class="contact-btn" onclick="copyContact('research@alchemyvalores.com')" style="background: linear-gradient(135deg, rgba(255,255,255,0.25), rgba(255,255,255,0.15));">
+                        📊 <strong>Análisis Macro</strong><br><span style="font-size: 0.9rem;">Argentina & Política Monetaria</span>
+                    </button>
+                    <button class="contact-btn" onclick="copyContact('internacional@alchemyvalores.com')" style="background: linear-gradient(135deg, rgba(255,255,255,0.25), rgba(255,255,255,0.15));">
+                        🌍 <strong>Mercados Globales</strong><br><span style="font-size: 0.9rem;">Estrategia Internacional</span>
+                    </button>
+                    <button class="contact-btn" onclick="copyContact('fondos@alchemyvalores.com')" style="background: linear-gradient(135deg, rgba(255,255,255,0.25), rgba(255,255,255,0.15));">
+                        💼 <strong>Gestión de Fondos</strong><br><span style="font-size: 0.9rem;">Local & LATAM</span>
+                    </button>
+                </div>
+                
+                <div style="margin: 40px 0; padding: 30px; background: rgba(255,255,255,0.1); border-radius: 15px;">
+                    <h4 style="color: white; margin-bottom: 20px; font-size: 1.4rem;">📅 Próximas Fechas Clave</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; text-align: left;">
+                        <div>
+                            <strong style="color: #F4D03F;">5 de Septiembre 2025</strong><br>
+                            <span style="opacity: 0.9;">Próximo Reporte Semanal</span>
+                        </div>
+                        <div>
+                            <strong style="color: #F4D03F;">Dato IPC Agosto (INDEC)</strong><br>
+                            <span style="opacity: 0.9;">Inflación oficial agosto</span>
+                        </div>
+                        <div>
+                            <strong style="color: #F4D03F;">Elecciones Provinciales</strong><br>
+                            <span style="opacity: 0.9;">Factor crítico Argentina</span>
+                        </div>
+                        <div>
+                            <strong style="color: #F4D03F;">Balance Cambiario BCRA</strong><br>
+                            <span style="opacity: 0.9;">Flujo divisas agosto</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="disclaimer">
+                    <h4 style="margin-bottom: 15px;">📋 Información Legal</h4>
+                    <p style="line-height: 1.8; text-align: left;">
+                        <strong>Propósito:</strong> Este reporte es para uso interno de Alchemy Valores y representa la visión del equipo de research al momento de la reunión del 28 de agosto de 2025.<br>
+                        <strong>Riesgos:</strong> Las condiciones de mercado pueden cambiar rápidamente. Las inversiones conllevan riesgos inherentes de pérdida.<br>
+                        <strong>Fuentes:</strong> Análisis basado en información pública, transcripciones internas y datos de mercado actualizados.<br>
+                        <strong>Confidencialidad:</strong> Información confidencial de uso exclusivo de Alchemy Valores y clientes autorizados.
+                    </p>
+                </div>
+                
+                <div style="margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #D4AF37, #F4D03F); border-radius: 15px; color: #5D4E3A;">
+                    <h4 style="margin-bottom: 10px; color: #5D4E3A;">🚀 Innovación en Research</h4>
+                    <p style="margin: 0; font-weight: 600;">
+                        Reporte generado con inteligencia artificial aplicada a transcripciones de reuniones, 
+                        representando la vanguardia en análisis financiero automatizado.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Funciones para el gráfico SVG personalizado
+        function highlightSegment(segmentIndex) {
+            const segments = document.querySelectorAll('.chart-segment');
+            segments.forEach((segment, index) => {
+                if (index === segmentIndex) {
+                    segment.style.filter = 'brightness(1.2) drop-shadow(0 0 10px rgba(212,175,55,0.5))';
+                    segment.style.strokeWidth = '85';
+                } else {
+                    segment.style.opacity = '0.6';
+                }
+            });
+        }
+        
+        function resetSegments() {
+            const segments = document.querySelectorAll('.chart-segment');
+            segments.forEach(segment => {
+                segment.style.filter = 'none';
+                segment.style.opacity = '1';
+                segment.style.strokeWidth = '80';
+            });
+        }
+        
+        // Animación de entrada para el gráfico SVG
+        window.addEventListener('load', function() {
+            const segments = document.querySelectorAll('.chart-segment');
+            segments.forEach((segment, index) => {
+                setTimeout(() => {
+                    segment.style.strokeDasharray = segment.getAttribute('stroke-dasharray');
+                }, index * 500);
+            });
+        });
+
+        // Funciones de interactividad
+        function showTab(tabName) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            const tabs = document.querySelectorAll('.tab-btn');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function toggleAction(element) {
+            const checkbox = element.querySelector('.action-checkbox');
+            
+            if (element.classList.contains('completed')) {
+                element.classList.remove('completed');
+                checkbox.innerHTML = '⏳';
+            } else {
+                element.classList.add('completed');
+                checkbox.innerHTML = '✅';
+            }
+        }
+
+        function copyContact(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(() => {
+                    const notification = document.createElement('div');
+                    notification.innerHTML = '📋 ¡Contacto copiado!';
+                    notification.style.cssText = `
+                        position: fixed;
+                        top: 20px;
+                        right: 20px;
+                        background: linear-gradient(135deg, #4CAF50, #45a049);
+                        color: white;
+                        padding: 15px 25px;
+                        border-radius: 10px;
+                        font-weight: 600;
+                        z-index: 10000;
+                        box-shadow: 0 10px 25px rgba(76, 175, 80, 0.3);
+                    `;
+                    
+                    document.body.appendChild(notification);
+                    setTimeout(() => notification.remove(), 3000);
+                });
+            } else {
+                alert('📞 Contacto: ' + text);
+            }
+        }
+
+        // Animaciones
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 150);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.summary-card, .opportunity-card, .risk-card').forEach(card => {
+            card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(card);
+        });
+
+        // Inicialización
+        console.log('✅ Presentación Alchemy Valores cargada - Versión Revisada');
+    </script>
+</body>
+</html>
+                                    
